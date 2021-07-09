@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="main_screen_main_layout_padding">5dp</dimen>
+    <dimen name="margin_start">10dp</dimen>
+    <dimen name="margin_end">10dp</dimen>
+    <dimen name="width_start">150dp</dimen>
+    <dimen name="height_start">150dp</dimen>
+
+
+</resources>
