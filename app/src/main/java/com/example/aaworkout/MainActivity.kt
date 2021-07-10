@@ -1,5 +1,6 @@
 package com.example.aaworkout
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -29,6 +30,10 @@ class MainActivity : AppCompatActivity() {
 
         //Now just use binding.views_Id to import them from
         binding.llStart.setOnClickListener{
+            val intent = Intent(this@MainActivity, WorkoutActivity::class.java)
+
+            startActivity(intent)
+            
             Toast.makeText(this, "Start Workout here", Toast.LENGTH_SHORT).show()
         }
 
