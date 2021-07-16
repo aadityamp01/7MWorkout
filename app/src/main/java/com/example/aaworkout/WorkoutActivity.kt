@@ -37,9 +37,10 @@ class WorkoutActivity : AppCompatActivity() {
             onBackPressed()
         }
 
-        setupRestView()
-
         exerciseList = Constants.defaultExerciseList()
+
+        setupRestView()    // REST View is set in this function
+
     }
 
     public override fun onDestroy() {
@@ -49,6 +50,20 @@ class WorkoutActivity : AppCompatActivity() {
         }
 
         super.onDestroy()
+    }
+
+    private fun setupRestView(){
+        binding.llRestView.visibility = View.VISIBLE
+        binding.llExerciseView.visibility = View.GONE
+
+        if(restTimer!= null){
+            restTimer!!.cancel()
+            restProgress = 0
+        }
+
+        binding.tvUpcomingExerciseName.text = exerciseList!![currentExercisePosition + 1].getName()
+
+        setRestProgressBar()
     }
 
     /**
@@ -77,24 +92,31 @@ class WorkoutActivity : AppCompatActivity() {
             override fun onFinish() {
 
                 currentExercisePosition++
+
+                exerciseList!![currentExercisePosition].setIsSelected(true)
+
                 setupExerciseView()
-                Toast.makeText(this@WorkoutActivity, "Here we will add exercise", Toast.LENGTH_SHORT).show()
             }
         }.start()
     }
 
-    private fun setupRestView(){
-        binding.llRestView.visibility = View.VISIBLE
-        binding.llExerciseView.visibility = View.GONE
 
-        if(restTimer!= null){
-            restTimer!!.cancel()
-            restProgress = 0
+
+    private fun setupExerciseView(){
+
+        binding.llRestView.visibility = View.GONE
+        binding.llExerciseView.visibility = View.VISIBLE
+
+
+        if(exerciseTimer!= null){
+            exerciseTimer!!.cancel()
+            exerciseProgress = 0
         }
 
-        binding.tvUpcomingExerciseName.text = exerciseList!![currentExercisePosition+1].toString()
+        binding.ivImage.setImageResource(exerciseList!![currentExercisePosition].getImage()) // getImage is used to get image form exercise model
+        binding.tvExerciseName.text = exerciseList!![currentExercisePosition].getName()
 
-        setRestProgressBar()
+        setExerciseProgressBar()
     }
 
     private fun setExerciseProgressBar() {
@@ -109,7 +131,10 @@ class WorkoutActivity : AppCompatActivity() {
             }
 
             override fun onFinish() {
-                if(currentExercisePosition < exerciseList?.size!! - 1){
+                exerciseList!![currentExercisePosition].setIsSelected(false) // exercise is completed so selection is set to false
+                exerciseList!![currentExercisePosition].setIsCompleted(true) // updating in the list that this exercise is completed
+
+                if(currentExercisePosition < 11){
                     setupRestView()
                 }else {
 
@@ -123,21 +148,5 @@ class WorkoutActivity : AppCompatActivity() {
         } .start()
     }
 
-    private fun setupExerciseView(){
-
-        binding.llRestView.visibility = View.GONE
-        binding.llExerciseView.visibility = View.VISIBLE
-
-
-        if(exerciseTimer!= null){
-            exerciseTimer!!.cancel()
-            exerciseProgress = 0
-        }
-
-        setExerciseProgressBar()
-
-        binding.ivImage.setImageResource(exerciseList!![currentExercisePosition].getImage()) // getimage is used to get image form exercise model
-        binding.tvExerciseName.text = exerciseList!![currentExercisePosition].getName()
-    }
 
 }

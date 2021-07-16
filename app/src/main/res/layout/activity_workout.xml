@@ -109,14 +109,14 @@
             android:layout_weight="1"
             android:contentDescription="@string/exercise_image"
             android:scaleType="fitXY"
-            tools:src="@drawable/ic_jumping_jacks"/>
+            android:src="@drawable/ic_jumping_jacks"/>
 
         <TextView
             android:id="@+id/tvExerciseName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:textColor="#212121"
+            android:textColor="@color/black"
             android:textSize="22sp"
             android:textStyle="bold"
             tools:text="Exercise Name" />
