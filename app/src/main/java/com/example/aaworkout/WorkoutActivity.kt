@@ -38,6 +38,8 @@ class WorkoutActivity : AppCompatActivity() {
         }
 
         setupRestView()
+
+        exerciseList = Constants.defaultExerciseList()
     }
 
     public override fun onDestroy() {
@@ -82,6 +84,9 @@ class WorkoutActivity : AppCompatActivity() {
     }
 
     private fun setupRestView(){
+        binding.llRestView.visibility = View.VISIBLE
+        binding.llExerciseView.visibility = View.GONE
+
         if(restTimer!= null){
             restTimer!!.cancel()
             restProgress = 0
@@ -104,14 +109,18 @@ class WorkoutActivity : AppCompatActivity() {
             }
 
             override fun onFinish() {
+                if(currentExercisePosition < exerciseList?.size!! - 1){
+                    setupRestView()
+                }else {
 
                     Toast.makeText(
                         this@WorkoutActivity,
                         "Congratulations! You have completed the 7 minutes workout.",
                         Toast.LENGTH_SHORT
                     ).show()
+                }
             }
-        }.start()
+        } .start()
     }
 
     private fun setupExerciseView(){
@@ -126,6 +135,9 @@ class WorkoutActivity : AppCompatActivity() {
         }
 
         setExerciseProgressBar()
+
+        binding.ivImage.setImageResource(exerciseList!![currentExercisePosition].getImage()) // getimage is used to get image form exercise model
+        binding.tvExerciseName.text = exerciseList!![currentExercisePosition].getName()
     }
 
 }

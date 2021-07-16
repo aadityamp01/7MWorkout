@@ -8,6 +8,8 @@ class ExerciseModel(
     private var isSelected: Boolean) {
 
 
+    //Getters and Setters
+
     fun getId():Int {
         return id
     }

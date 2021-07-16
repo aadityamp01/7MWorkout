@@ -83,7 +83,7 @@
             android:id="@+id/tvUpcomingExerciseName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="15dp"
             android:textColor="#212121"
             android:textSize="22sp"
             android:textStyle="bold"
@@ -101,10 +101,31 @@
         android:visibility="gone"
         tools:visibility="visible">
 
+
+        <ImageView
+            android:id="@+id/ivImage"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/exercise_image"
+            android:scaleType="fitXY"
+            tools:src="@drawable/ic_jumping_jacks"/>
+
+        <TextView
+            android:id="@+id/tvExerciseName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textColor="#212121"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            tools:text="Exercise Name" />
+
         <FrameLayout
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/item_circular_color_accent_border">
 
             <ProgressBar
@@ -134,7 +155,7 @@
                     android:textColor="#FFFFFF"
                     android:textSize="25sp"
                     android:textStyle="bold"
-                    tools:text="10" />
+                    tools:text="30" />
             </LinearLayout>
         </FrameLayout>
 
