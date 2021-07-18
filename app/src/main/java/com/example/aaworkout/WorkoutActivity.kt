@@ -1,5 +1,6 @@
 package com.example.aaworkout
 
+import android.content.Intent
 import android.media.MediaPlayer
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -47,6 +48,9 @@ class WorkoutActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
         binding.toolbarWorkoutActivity.setNavigationOnClickListener {
             onBackPressed()
+
+            TODO("SET Action for the player, when back button pressed in between exercise; " +
+                    "player keeps looping on main screen if pressed")
         }
 
         exerciseList = Constants.defaultExerciseList()
@@ -106,7 +110,7 @@ class WorkoutActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
          */
         try {
             val soundURI =
-                Uri.parse("android.resource://com.sevenminuteworkout/" + R.raw.start_sound)
+                Uri.parse("android.resource://com.example.aaworkout/" + R.raw.start_sound)
             player = MediaPlayer.create(applicationContext, soundURI)
             player!!.isLooping = false // Sets the player to be looping or non-looping.
             player!!.start() // Starts Playback.
@@ -202,11 +206,19 @@ class WorkoutActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                     setupRestView()
                 }else {
 
+                    if(player != null){
+                        player!!.stop()
+                    }
+
                     Toast.makeText(
                         this@WorkoutActivity,
                         "Congratulations! You have completed the 7 minutes workout.",
                         Toast.LENGTH_SHORT
                     ).show()
+
+                    val intent = Intent(this@WorkoutActivity, MainActivity::class.java)
+
+                    startActivity(intent)
                 }
             }
         } .start()
