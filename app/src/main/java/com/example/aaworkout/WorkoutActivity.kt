@@ -1,13 +1,19 @@
 package com.example.aaworkout
 
+import android.media.MediaPlayer
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.speech.tts.TextToSpeech
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.example.aaworkout.databinding.ActivityWorkoutBinding
+import java.util.*
+import kotlin.collections.ArrayList
 
-class WorkoutActivity : AppCompatActivity() {
+class WorkoutActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     private var restTimer: CountDownTimer? =
         null // Variable for Rest Timer and later on I will initialize it.
@@ -20,11 +26,17 @@ class WorkoutActivity : AppCompatActivity() {
     private var exerciseList: ArrayList<ExerciseModel>? = null // initialize the list later.
     private var currentExercisePosition = -1 // Current Position of Exercise.
 
+    private var ttospeech: TextToSpeech? = null  //creating var for text to speech
+    private var player: MediaPlayer? = null // Creating a var for Media Player to use later.
 
     private lateinit var binding: ActivityWorkoutBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
+        ttospeech = TextToSpeech(this@WorkoutActivity,this@WorkoutActivity)
+
 
         //View Binding for easy access of all the view of activities with null and type safety.
         binding = ActivityWorkoutBinding.inflate(layoutInflater)
@@ -49,10 +61,60 @@ class WorkoutActivity : AppCompatActivity() {
             restProgress = 0
         }
 
+        if (ttospeech != null) {
+            ttospeech!!.stop()
+            ttospeech!!.shutdown()
+        }
+
+        if(player != null){
+            player!!.stop()
+        }
+
         super.onDestroy()
     }
 
+    /**
+     * This the TextToSpeech fun
+     *
+     * Called to signal the completion of the TextToSpeech engine initialization.
+     */
+
+    override fun onInit(status: Int) {
+
+        if(status == TextToSpeech.SUCCESS){
+            val result = ttospeech!!.setLanguage(Locale.US)
+
+            if(result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED){
+                Log.e("TTS","The language is not supported" )
+            }
+        }
+        else{
+            Log.e("TTA", "Initialization failed!")
+        }
+    }
+
+    /**
+     * Function is used to set the timer for REST.
+     */
+
     private fun setupRestView(){
+
+        /**
+         * Here the sound file is added in to "raw" folder in resources.
+         * And played using MediaPlayer. MediaPlayer class can be used to control playback
+         * of audio/video files and streams.
+         */
+        try {
+            val soundURI =
+                Uri.parse("android.resource://com.sevenminuteworkout/" + R.raw.start_sound)
+            player = MediaPlayer.create(applicationContext, soundURI)
+            player!!.isLooping = false // Sets the player to be looping or non-looping.
+            player!!.start() // Starts Playback.
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+
+
         binding.llRestView.visibility = View.VISIBLE
         binding.llExerciseView.visibility = View.GONE
 
@@ -116,6 +178,8 @@ class WorkoutActivity : AppCompatActivity() {
         binding.ivImage.setImageResource(exerciseList!![currentExercisePosition].getImage()) // getImage is used to get image form exercise model
         binding.tvExerciseName.text = exerciseList!![currentExercisePosition].getName()
 
+        speakOut(exerciseList!![currentExercisePosition].getName())
+
         setExerciseProgressBar()
     }
 
@@ -146,6 +210,13 @@ class WorkoutActivity : AppCompatActivity() {
                 }
             }
         } .start()
+    }
+
+    /**
+     * Function is used to speak the text what we pass to it.
+     */
+    private fun speakOut(text: String) {
+        ttospeech!!.speak(text, TextToSpeech.QUEUE_FLUSH, null, "")   // We can use QUEUE_ADD
     }
 
 
