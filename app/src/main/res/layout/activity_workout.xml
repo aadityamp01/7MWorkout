@@ -25,7 +25,7 @@
         android:gravity="center"
         android:orientation="vertical"
         android:visibility="visible"
-        tools:visibility="visible">
+        tools:visibility="invisible">
 
         <TextView
             android:layout_width="wrap_content"
@@ -109,23 +109,23 @@
             android:layout_weight="1"
             android:contentDescription="@string/exercise_image"
             android:scaleType="fitXY"
-            android:src="@drawable/ic_jumping_jacks"/>
+            android:src="@drawable/ic_jumping_jacks" />
 
         <TextView
             android:id="@+id/tvExerciseName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
             android:textColor="@color/black"
             android:textSize="22sp"
             android:textStyle="bold"
+            android:layout_marginBottom="5dp"
             tools:text="Exercise Name" />
 
         <FrameLayout
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="40dp"
             android:background="@drawable/item_circular_color_accent_border">
 
             <ProgressBar
@@ -160,5 +160,14 @@
         </FrameLayout>
 
     </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvWorkoutStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="5dp"
+        android:layout_margin="5dp" />
 
 </RelativeLayout>

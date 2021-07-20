@@ -1,8 +1,10 @@
 package com.example.aaworkout
 
 import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.aaworkout.databinding.ItemWokoutStatusBinding
 
@@ -11,7 +13,7 @@ import com.example.aaworkout.databinding.ItemWokoutStatusBinding
  * For ref -> https://www.youtube.com/watch?v=vmJFXmefBsM
  */
 
-class WorkoutStatusAdapter(val items: ArrayList<ExerciseModel>, val context: Context): RecyclerView.Adapter<WorkoutStatusAdapter.ViewHolder>() {
+class WorkoutStatusAdapter(private val items: ArrayList<ExerciseModel>, private val context: Context): RecyclerView.Adapter<WorkoutStatusAdapter.ViewHolder>() {
 
     // Holds the TextView that will add each item
     class ViewHolder(val binding: ItemWokoutStatusBinding) : RecyclerView.ViewHolder(binding.root)
@@ -40,6 +42,27 @@ class WorkoutStatusAdapter(val items: ArrayList<ExerciseModel>, val context: Con
         val model: ExerciseModel = items[position]
 
         holder.binding.tvItem.text = model.getId().toString()
+
+        when {
+            model.getIsSelected() -> {
+                holder.binding.tvItem.background =
+                    ContextCompat.getDrawable(
+                        context,
+                        R.drawable.item_circular_thin_color_accent_border
+                    )
+                holder.binding.tvItem.setTextColor(Color.parseColor("#212121")) // Parse the color string, and return the corresponding color-int.
+            }
+            model.getIsCompleted() -> {
+                holder.binding.tvItem.background =
+                    ContextCompat.getDrawable(context, R.drawable.item_circular_color_accent_background)
+                holder.binding.tvItem.setTextColor(Color.parseColor("#FFFFFF"))
+            }
+            else -> {
+                holder.binding.tvItem.background =
+                    ContextCompat.getDrawable(context, R.drawable.item_circular_color_gray_background)
+                holder.binding.tvItem.setTextColor(Color.parseColor("#212121"))
+            }
+        }
     }
 
     override fun getItemCount(): Int {

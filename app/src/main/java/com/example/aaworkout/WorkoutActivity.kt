@@ -10,6 +10,7 @@ import android.speech.tts.TextToSpeech
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.aaworkout.databinding.ActivityWorkoutBinding
 import java.util.*
 import kotlin.collections.ArrayList
@@ -29,6 +30,8 @@ class WorkoutActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     private var ttospeech: TextToSpeech? = null  //creating var for text to speech
     private var player: MediaPlayer? = null // Creating a var for Media Player to use later.
+
+    private var exerciseAdapter: WorkoutStatusAdapter? = null
 
     private lateinit var binding: ActivityWorkoutBinding
 
@@ -56,6 +59,9 @@ class WorkoutActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         exerciseList = Constants.defaultExerciseList()
 
         setupRestView()    // REST View is set in this function
+
+        // setting up the exercise recycler view
+        setupExerciseStatusRecyclerView()
 
     }
 
@@ -160,6 +166,8 @@ class WorkoutActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                 currentExercisePosition++
 
                 exerciseList!![currentExercisePosition].setIsSelected(true)
+                exerciseAdapter!!.notifyDataSetChanged() // Notified the current item to adapter class to reflect it into UI.
+
 
                 setupExerciseView()
             }
@@ -201,8 +209,9 @@ class WorkoutActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             override fun onFinish() {
                 exerciseList!![currentExercisePosition].setIsSelected(false) // exercise is completed so selection is set to false
                 exerciseList!![currentExercisePosition].setIsCompleted(true) // updating in the list that this exercise is completed
+                exerciseAdapter!!.notifyDataSetChanged() // Notifying to adapter class.
 
-                if(currentExercisePosition < 11){
+                if(currentExercisePosition < exerciseList?.size!! - 1){
                     setupRestView()
                 }else {
 
@@ -231,5 +240,22 @@ class WorkoutActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         ttospeech!!.speak(text, TextToSpeech.QUEUE_FLUSH, null, "")   // We can use QUEUE_ADD
     }
 
+
+    /**
+     * Function is used to set up the recycler view to UI and assign the Layout Manager and Adapter Class is attached to it.
+     */
+    private fun setupExerciseStatusRecyclerView() {
+
+        // Defining a layout manager to recycle view
+        // Here we have used Linear Layout Manager with horizontal scroll.
+        binding.rvWorkoutStatus.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+
+        // As the adapter expect the exercises list and context so initialize it passing it.
+        exerciseAdapter = WorkoutStatusAdapter(exerciseList!!, this)
+
+        // Adapter class is attached to recycler view
+        binding.rvWorkoutStatus.adapter = exerciseAdapter
+    }
 
 }
