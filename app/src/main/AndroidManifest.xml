@@ -11,10 +11,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AAWorkout">
         <activity
+            android:name=".FinishActivity"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
+        <activity
             android:name=".WorkoutActivity"
             android:screenOrientation="fullSensor"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-        </activity>
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">

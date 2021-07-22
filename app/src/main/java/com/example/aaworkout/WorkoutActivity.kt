@@ -218,14 +218,15 @@ class WorkoutActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                     if(player != null){
                         player!!.stop()
                     }
+                    finish()
 
-                    Toast.makeText(
+                    /*Toast.makeText(
                         this@WorkoutActivity,
-                        "Congratulations! You have completed the 7 minutes workout.",
+                        "Congratulations! You have completed the 7 minutes workout!",
                         Toast.LENGTH_SHORT
-                    ).show()
+                    ).show()*/
 
-                    val intent = Intent(this@WorkoutActivity, MainActivity::class.java)
+                    val intent = Intent(this@WorkoutActivity, FinishActivity::class.java)
 
                     startActivity(intent)
                 }
