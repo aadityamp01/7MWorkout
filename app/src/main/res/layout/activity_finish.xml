@@ -1,22 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ic_bg"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    android:padding="20dp"
-    tools:context=".MainActivity">
+    tools:context=".FinishActivity">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_finish_activity"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/white"
+        android:theme="@style/ToolbarTheme"
+        app:titleTextColor="@color/colorAccent" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:text="@string/result"
+        android:layout_marginTop="10dp"
+        android:text="@string/end"
         android:textColor="@android:color/white"
-        android:textSize="25sp"
+        android:textSize="30sp"
         android:textStyle="bold" />
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -31,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Congratulations! You have completed the 7 minutes workout!"
+        android:text="@string/finish_workout"
         android:textColor="@android:color/white"
         android:textAlignment="center"
         android:textSize="18sp"
@@ -51,7 +60,9 @@
         android:id="@+id/btn_finish"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="15dp"
         android:background="@color/white"
         android:text="@string/finish"
         android:textColor="@color/design_default_color_primary"
