@@ -1,18 +1,19 @@
 package com.example.aaworkout
 
+import android.app.Dialog
 import android.content.Intent
 import android.media.MediaPlayer
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.speech.tts.TextToSpeech
 import android.util.Log
 import android.view.View
+import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.aaworkout.databinding.ActivityWorkoutBinding
 import java.util.*
-import kotlin.collections.ArrayList
 
 class WorkoutActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
@@ -27,7 +28,7 @@ class WorkoutActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     private var exerciseList: ArrayList<ExerciseModel>? = null // initialize the list later.
     private var currentExercisePosition = -1 // Current Position of Exercise.
 
-    private var ttospeech: TextToSpeech? = null  //creating var for text to speech
+    private var ttSpeech: TextToSpeech? = null  //creating var for text to speech
     private var player: MediaPlayer? = null // Creating a var for Media Player to use later.
 
     private var exerciseAdapter: WorkoutStatusAdapter? = null
@@ -38,7 +39,7 @@ class WorkoutActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         super.onCreate(savedInstanceState)
 
 
-        ttospeech = TextToSpeech(this@WorkoutActivity,this@WorkoutActivity)
+        ttSpeech = TextToSpeech(this@WorkoutActivity,this@WorkoutActivity)
 
 
         //View Binding for easy access of all the view of activities with null and type safety.
@@ -49,10 +50,10 @@ class WorkoutActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         binding.toolbarWorkoutActivity.setNavigationOnClickListener {
-            onBackPressed()
+            customDialogConfirmation()  // Using custom class
 
-            TODO("SET Action for the player, when back button pressed in between exercise; " +
-                    "player keeps looping on main screen if pressed")
+            /*TODO_DONE_withCustomDialog("SET Action for the player, when back button pressed in between exercise; " +
+                    "player keeps looping on main screen if pressed")*/
         }
 
         exerciseList = Constants.defaultExerciseList()
@@ -70,9 +71,9 @@ class WorkoutActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             restProgress = 0
         }
 
-        if (ttospeech != null) {
-            ttospeech!!.stop()
-            ttospeech!!.shutdown()
+        if (ttSpeech != null) {
+            ttSpeech!!.stop()
+            ttSpeech!!.shutdown()
         }
 
         if(player != null){
@@ -91,7 +92,7 @@ class WorkoutActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     override fun onInit(status: Int) {
 
         if(status == TextToSpeech.SUCCESS){
-            val result = ttospeech!!.setLanguage(Locale.US)
+            val result = ttSpeech!!.setLanguage(Locale.US)
 
             if(result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED){
                 Log.e("TTS","The language is not supported" )
@@ -214,9 +215,6 @@ class WorkoutActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                     setupRestView()
                 }else {
 
-                    if(player != null){
-                        player!!.stop()
-                    }
                     finish()
 
                     /*Toast.makeText(
@@ -237,7 +235,7 @@ class WorkoutActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
      * Function is used to speak the text what we pass to it.
      */
     private fun speakOut(text: String) {
-        ttospeech!!.speak(text, TextToSpeech.QUEUE_FLUSH, null, "")   // We can use QUEUE_ADD
+        ttSpeech!!.speak(text, TextToSpeech.QUEUE_FLUSH, null, "")   // We can use QUEUE_ADD
     }
 
 
@@ -257,5 +255,29 @@ class WorkoutActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         // Adapter class is attached to recycler view
         binding.rvWorkoutStatus.adapter = exerciseAdapter
     }
+
+    private fun customDialogConfirmation(){
+
+        val customDialog = Dialog(this)
+
+        customDialog.setContentView(R.layout.dialog_confirmation)
+
+        val tvYES = customDialog.findViewById(R.id.tvYes) as Button
+        val tvNo = customDialog.findViewById(R.id.tvNo) as Button
+
+        tvYES.setOnClickListener {
+            finish()
+            player!!.stop()
+
+            customDialog.dismiss()
+        }
+
+        tvNo.setOnClickListener {
+            customDialog.dismiss()
+        }
+
+        customDialog.show()
+    }
+    
 
 }
