@@ -37,5 +37,13 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "Start Workout here", Toast.LENGTH_SHORT).show()
         }
 
+        binding.llBMI.setOnClickListener{
+            val intent = Intent(this@MainActivity, BMI::class.java)
+
+            startActivity(intent)
+
+            Toast.makeText(this, "This is BMI calculator", Toast.LENGTH_SHORT).show()
+        }
+
     }
 }

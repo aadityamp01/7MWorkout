@@ -12,4 +12,13 @@
     <string name="confirmation_question">Are you sure?</string>
     <string name="confirmation_quit">This will stop your workout. You\'ve come this far, are you sure you want to quit?</string>
     <string name="bmi">BMI</string>
+    <string name="metric_units">METRIC UNITS</string>
+    <string name="us_units">US UNITS</string>
+    <string name="weight_in_kg">WEIGHT (in kg)</string>
+    <string name="height_in_cm">HEIGHT (in cm)</string>
+    <string name="weight_in_lbs">WEIGHT (in lbs)</string>
+    <string name="inch">Inch</string>
+    <string name="feet">Feet</string>
+    <string name="your_bmi">YOUR BMI</string>
+    <string name="calculate">CALCULATE</string>
 </resources>
