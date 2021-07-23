@@ -50,10 +50,10 @@ class WorkoutActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         binding.toolbarWorkoutActivity.setNavigationOnClickListener {
-            customDialogConfirmation()  // Using custom class
+            customDialogConfirmation()  // Using custom fun
 
-            /*TODO_DONE_withCustomDialog("SET Action for the player, when back button pressed in between exercise; " +
-                    "player keeps looping on main screen if pressed")*/
+            TODO("SET Action for the player, when back button pressed in between exercise; " +
+                    "player keeps looping on main screen if pressed")
         }
 
         exerciseList = Constants.defaultExerciseList()
@@ -260,7 +260,7 @@ class WorkoutActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
         val customDialog = Dialog(this)
 
-        customDialog.setContentView(R.layout.dialog_confirmation)
+        customDialog.setContentView(R.layout.item_dialog_confirmation)
 
         val tvYES = customDialog.findViewById(R.id.tvYes) as Button
         val tvNo = customDialog.findViewById(R.id.tvNo) as Button
