@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".BMI">
+    tools:context=".BMI"
+    android:theme="@style/Theme.MaterialComponents.Light">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_bmi_activity"
@@ -66,7 +67,8 @@
             android:id="@+id/llMetricUnitsView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:theme="@style/Theme.MaterialComponents.Light">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilMetricUnitWeight"
@@ -106,7 +108,8 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:visibility="gone"
-            tools:visibility="visible">
+            tools:visibility="visible"
+            android:theme="@style/Theme.MaterialComponents.Light">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilUsUnitWeight"
@@ -129,7 +132,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:baselineAligned="false"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:theme="@style/Theme.MaterialComponents.Light">
 
                 <!--Here the BaselineAligned is When set to false, prevents the layout from aligning its children's
                  baselines. This attribute is particularly useful when the children
@@ -179,7 +183,8 @@
             android:layout_marginTop="25dp"
             android:orientation="vertical"
             android:visibility="visible"
-            tools:visibility="visible">
+            tools:visibility="visible"
+            android:theme="@style/Theme.MaterialComponents.Light">
 
             <TextView
                 android:id="@+id/tvYourBMI"
