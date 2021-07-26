@@ -21,4 +21,6 @@
     <string name="feet">Feet</string>
     <string name="your_bmi">YOUR BMI</string>
     <string name="calculate">CALCULATE</string>
+    <string name="cal_image">cal_image</string>
+    <string name="history">History</string>
 </resources>
