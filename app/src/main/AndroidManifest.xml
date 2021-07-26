@@ -11,6 +11,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AAWorkout">
         <activity
+            android:name=".HistoryActivity"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity
             android:name=".BMI"
             android:screenOrientation="fullSensor"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
