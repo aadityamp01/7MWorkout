@@ -25,10 +25,10 @@
             android:id="@+id/tvHistory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="@dimen/margin_top"
             android:gravity="center"
             android:text="@string/exercise_completed"
-            android:textSize="18sp"
+            android:textSize="@dimen/text_medium"
             android:visibility="gone"
             tools:visibility="visible" />
 
@@ -47,7 +47,7 @@
             android:gravity="center"
             android:text="@string/no_data_available"
             android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textSize="@dimen/text_medium"
             android:visibility="visible"
             tools:visibility="gone" />
     </LinearLayout>

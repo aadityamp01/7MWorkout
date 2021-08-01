@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/toolbar_bmi_activity"
-        android:layout_margin="10dp"
+        android:layout_margin="@dimen/margin_start"
         android:background="@drawable/drawable_radio_group_tab_background"
         android:orientation="horizontal">
 
@@ -37,7 +37,7 @@
             android:gravity="center"
             android:text="@string/metric_units"
             android:textColor="@drawable/drawable_units_tab_text_color_selector"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_normal"
             android:textStyle="bold" />
 
         <RadioButton
@@ -51,7 +51,7 @@
             android:gravity="center"
             android:text="@string/us_units"
             android:textColor="@drawable/drawable_units_tab_text_color_selector"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_normal"
             android:textStyle="bold" />
     </RadioGroup>
 
@@ -82,7 +82,7 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/weight_in_kg"
                     android:inputType="numberDecimal"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/text_normal" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -90,7 +90,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="@dimen/margin_top">
 
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/etMetricUnitHeight"
@@ -98,7 +98,7 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/height_in_cm"
                     android:inputType="numberDecimal"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/text_normal" />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
@@ -123,14 +123,14 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/weight_in_lbs"
                     android:inputType="numberDecimal"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/text_normal" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
                 android:id="@+id/llUsUnitsHeight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/margin_top"
                 android:baselineAligned="false"
                 android:orientation="horizontal"
                 android:theme="@style/Theme.MaterialComponents.Light">
@@ -153,7 +153,7 @@
                         android:layout_height="wrap_content"
                         android:hint="@string/feet"
                         android:inputType="number"
-                        android:textSize="16sp" />
+                        android:textSize="@dimen/text_normal" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -170,7 +170,7 @@
                         android:layout_height="wrap_content"
                         android:hint="@string/inch"
                         android:inputType="number"
-                        android:textSize="16sp" />
+                        android:textSize="@dimen/text_normal" />
                 </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
@@ -202,7 +202,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:gravity="center"
-                android:textSize="18sp"
+                android:textSize="@dimen/text_medium"
                 android:textStyle="bold"
                 tools:text="15.00" />
 
@@ -212,7 +212,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:gravity="center"
-                android:textSize="18sp"
+                android:textSize="@dimen/text_normal"
                 tools:text="Normal" />
 
             <TextView
@@ -221,7 +221,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:gravity="center"
-                android:textSize="18sp"
+                android:textSize="@dimen/text_medium"
                 tools:text="Normal" />
         </LinearLayout>
 
@@ -234,6 +234,6 @@
             android:background="@color/colorAccent"
             android:text="@string/calculate"
             android:textColor="#FFFFFF"
-            android:textSize="18sp" />
+            android:textSize="@dimen/text_medium" />
     </LinearLayout>
 </RelativeLayout>

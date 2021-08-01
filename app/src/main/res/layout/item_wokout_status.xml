@@ -9,6 +9,6 @@
     android:gravity="center"
     android:padding="3dp"
     android:textColor="@color/black"
-    android:textSize="14sp"
+    android:textSize="@dimen/status_item"
     android:textStyle="bold"
     tools:text="1" />

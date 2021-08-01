@@ -71,7 +71,7 @@
             android:layout_height="wrap_content"
             android:text="@string/start"
             android:textColor="@color/black"
-            android:textSize="22sp"
+            android:textSize="@dimen/text_START"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -103,8 +103,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/bmi"
-                android:textColor="#FFFFFF"
-                android:textSize="22sp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_START"
                 android:textStyle="bold" />
         </LinearLayout>
         <!--
@@ -153,10 +153,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="@dimen/margin_top"
         android:text="@string/history"
         android:textColor="@color/colorAccent"
-        android:textSize="22sp"
+        android:textSize="@dimen/text_START"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guideline9"
         app:layout_constraintEnd_toStartOf="@+id/guideline10"

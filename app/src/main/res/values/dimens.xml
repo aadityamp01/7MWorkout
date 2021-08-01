@@ -3,8 +3,14 @@
     <dimen name="main_screen_main_layout_padding">5dp</dimen>
     <dimen name="margin_start">10dp</dimen>
     <dimen name="margin_end">10dp</dimen>
+    <dimen name="margin_top">10dp</dimen>
     <dimen name="width_start">150dp</dimen>
     <dimen name="height_start">150dp</dimen>
+
+    <dimen name="text_normal">16sp</dimen>
+    <dimen name="text_medium">18sp</dimen>
+    <dimen name="status_item">14sp</dimen>
+    <dimen name="text_START">22sp</dimen>
 
 
 </resources>

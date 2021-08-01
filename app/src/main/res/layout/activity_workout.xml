@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
         android:layout_alignParentTop="true"
-        android:background="#FFFFFF"
+        android:background="@color/white"
         android:theme="@style/ToolbarTheme"
         app:titleTextColor="@color/colorAccent" />
 
@@ -65,7 +65,7 @@
                     android:id="@+id/tvTimer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/white"
                     android:textSize="25sp"
                     android:textStyle="bold"
                     tools:text="10" />
@@ -84,8 +84,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:textColor="#212121"
-            android:textSize="22sp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_START"
             android:textStyle="bold"
             tools:text="Exercise Name" />
 
@@ -116,7 +116,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:textSize="22sp"
+            android:textSize="@dimen/text_medium"
             android:textStyle="bold"
             android:layout_marginBottom="5dp"
             tools:text="Exercise Name" />
@@ -124,7 +124,7 @@
         <FrameLayout
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/margin_top"
             android:layout_marginBottom="40dp"
             android:background="@drawable/item_circular_color_accent_border">
 
@@ -152,7 +152,7 @@
                     android:id="@+id/tvTimerEx"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/white"
                     android:textSize="25sp"
                     android:textStyle="bold"
                     tools:text="30" />
