@@ -48,7 +48,7 @@ git push --set-upstream origin new-branch
 ### 6. Configure a Remote for the Fork
 ###### You’ll have to specify a new remote upstream repository for us to sync with the fork. This will be the original repository that you forked from. you’ll have to do this with the git remote add command.
 ```
-git remote add upstream https://github.com/aadityamp01/Quick-Chat.git
+git remote add upstream https://github.com/aadityamp01/7MWorkout.git
 ```
 
 ### 7. Sync the Fork
