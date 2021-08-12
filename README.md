@@ -27,3 +27,9 @@ To setup the project locally please follow the instructions:
 ### 3. Create New Branch
 ###### Once the project is cloned/opened create a new branch and checkout in it where you can make the changes in the code.
 ###### You can do this either from terminal or Directly in Android Studio.
+###### To do from Terminal:
+```
+git branch new-branch
+git checkout new-branch
+```
+
