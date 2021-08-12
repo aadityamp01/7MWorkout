@@ -51,3 +51,7 @@ git push --set-upstream origin new-branch
 git remote add upstream https://github.com/aadityamp01/Quick-Chat.git
 ```
 
+### 7. Sync the Fork
+### 8. Create Pull Request
+###### At this point, you are ready to make a pull request to the original repository.
+###### Navigate to your forked repository, and press the “New pull request” button on your left-hand side of the page.
