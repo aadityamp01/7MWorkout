@@ -32,4 +32,22 @@ To setup the project locally please follow the instructions:
 git branch new-branch
 git checkout new-branch
 ```
+### 4. Commit and Push
+###### After making the required changes commit and push your code
+###### Terminal:
+###### To add the changes after you have made the modifications
+``` git add . ``` or ``` git add -A ```
+###### To commit and push the changes
+```
+git commit -m <Your-commit-message>
+```
+```
+git push --set-upstream origin new-branch
+```
+### 5. Update Local Repository
+### 6. Configure a Remote for the Fork
+###### You’ll have to specify a new remote upstream repository for us to sync with the fork. This will be the original repository that you forked from. you’ll have to do this with the git remote add command.
+```
+git remote add upstream https://github.com/aadityamp01/Quick-Chat.git
+```
 
