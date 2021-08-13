@@ -56,5 +56,7 @@ git remote add upstream https://github.com/aadityamp01/7MWorkout.git
 ###### At this point, you are ready to make a pull request to the original repository.
 ###### Navigate to your forked repository, and press the “New pull request” button on your left-hand side of the page.
 
+#### Download application apk from the given link
+
 ## Contact for Collaboration
 > **_If you face any issue, feel free to contact me: @ [ampicopn@gmail.com]_**
