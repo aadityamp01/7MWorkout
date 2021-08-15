@@ -59,4 +59,4 @@ git remote add upstream https://github.com/aadityamp01/7MWorkout.git
 #### Download application apk from the given link
 
 ## Contact for Collaboration
-> **_If you face any issue, feel free to contact me: @ [ampicopn@gmail.com]_**
+> **_If you have any suggestion for the application, please feel free to contact me: @ [ampicopn@gmail.com]_**
