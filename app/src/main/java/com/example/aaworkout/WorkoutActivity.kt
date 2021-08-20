@@ -51,9 +51,7 @@ class WorkoutActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
         binding.toolbarWorkoutActivity.setNavigationOnClickListener {
             customDialogConfirmation()  // Using custom fun
-
-            TODO("SET Action for the player, when back button pressed in between exercise; " +
-                    "player keeps looping on main screen if pressed")
+            
         }
 
         exerciseList = Constants.defaultExerciseList()
