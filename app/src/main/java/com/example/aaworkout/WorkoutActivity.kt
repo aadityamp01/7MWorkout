@@ -208,6 +208,8 @@ class WorkoutActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                 exerciseList!![currentExercisePosition].setIsSelected(false) // exercise is completed so selection is set to false
                 exerciseList!![currentExercisePosition].setIsCompleted(true) // updating in the list that this exercise is completed
                 exerciseAdapter!!.notifyDataSetChanged() // Notifying to adapter class.
+                //For the warning refer this link below
+                // [https://stackoverflow.com/questions/68602157/it-will-always-be-more-efficient-to-use-more-specific-change-events-if-you-can]
 
                 if(currentExercisePosition < exerciseList?.size!! - 1){
                     setupRestView()
