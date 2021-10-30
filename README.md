@@ -1,6 +1,7 @@
 # 7MWorkout
 
 ### 7Minutes Workout Application will help everyone to stay fit
+In this application text to speech function is used so user can perform workout keeping device at distance, also history is stored in local database and BMI calculator is provided. 
 
 ## Technology Used
  1. Android
