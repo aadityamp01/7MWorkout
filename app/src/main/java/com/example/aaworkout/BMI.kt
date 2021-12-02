@@ -41,7 +41,7 @@ class BMI : AppCompatActivity() {
         makeVisibleMetricUnitsView()
 
         // Radio Group change listener is set to the radio group which is added in XML.
-        binding.rgUnits.setOnCheckedChangeListener { radioGroup: RadioGroup, checkedId: Int ->
+        binding.rgUnits.setOnCheckedChangeListener { _: RadioGroup, checkedId: Int ->
 
             // Here is the checkId is METRIC UNITS view then make the view visible else US UNITS view.
             if (checkedId == R.id.rbMetricUnits) {
