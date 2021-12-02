@@ -1,13 +1,26 @@
 # 7MWorkout
 
 ### 7Minutes Workout Application will help everyone to stay fit
-In this application text to speech function is used so user can perform workout keeping device at distance, also history is stored in local database and BMI calculator is provided. 
+
+
+## Features of the App
+ 1. User can perform workout by workout keeping device at a distance as text to speech function is provided.
+ 2. User can keep track of daily workout from the history as it is stored in the device of user
+ 3. User can calculate BMI
 
 ## Technology Used
  1. Android
- 2. Kotlin
- 3. Activity lifecycle
- 4. Intents
+ 2. Java / Kotlin
+ 3. RecyclerView
+ 4. TextToSpeech
+ 5. SQLite DB
+
+## Screenshotes
+
+|<img src="https://github.com/aadityamp01/7MWorkout/blob/master/assets/ss1.jpg" alt="drawing" width="250"/> | <img src="https://github.com/aadityamp01/7MWorkout/blob/master/assets/ss2.jpg" alt="drawing" width="250"/> | <img src="https://github.com/aadityamp01/7MWorkout/blob/master/assets/ss3.jpg" alt="drawing" width="250"/> | 
+|:---:|:---:|:---:|
+|<img src="https://github.com/aadityamp01/7MWorkout/blob/master/assets/ss4.jpg" alt="drawing" width="250"/>|<img src="https://github.com/aadityamp01/7MWorkout/blob/master/assets/ss5.jpg" alt="drawing" width="250"/>|<img src="https://github.com/aadityamp01/7MWorkout/blob/master/assets/ss6.jpg" alt="drawing" width="250"/>|
+|<img src="https://github.com/aadityamp01/7MWorkout/blob/master/assets/ss7.jpg" alt="drawing" width="250"/>|<img src="https://github.com/aadityamp01/7MWorkout/blob/master/assets/ss9.jpg" alt="drawing" width="250"/> | <img src="https://github.com/aadityamp01/7MWorkout/blob/master/assets/ss8.jpg" alt="drawing" width="250"/>| 
 
 ## Requirements
 1. Android Version 5.0 and above
