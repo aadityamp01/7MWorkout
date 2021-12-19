@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.annotation.RequiresApi
+import com.example.aaworkout.database.SqliteOpenHelper
 import com.example.aaworkout.databinding.ActivityFinishBinding
 import java.text.SimpleDateFormat
 import java.util.*

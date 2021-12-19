@@ -1,4 +1,6 @@
-package com.example.aaworkout
+package com.example.aaworkout.utils
+import com.example.aaworkout.models.ExerciseModel
+import com.example.aaworkout.R
 import java.util.*
 
 class Constants {

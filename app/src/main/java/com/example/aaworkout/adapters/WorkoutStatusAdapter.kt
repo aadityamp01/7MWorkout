@@ -1,4 +1,4 @@
-package com.example.aaworkout
+package com.example.aaworkout.adapters
 
 import android.content.Context
 import android.graphics.Color
@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.example.aaworkout.models.ExerciseModel
+import com.example.aaworkout.R
 import com.example.aaworkout.databinding.ItemWokoutStatusBinding
 
 /**
@@ -54,12 +56,16 @@ class WorkoutStatusAdapter(private val items: ArrayList<ExerciseModel>, private 
             }
             model.getIsCompleted() -> {
                 holder.binding.tvItem.background =
-                    ContextCompat.getDrawable(context, R.drawable.item_circular_color_accent_background)
+                    ContextCompat.getDrawable(context,
+                        R.drawable.item_circular_color_accent_background
+                    )
                 holder.binding.tvItem.setTextColor(Color.parseColor("#FFFFFF"))
             }
             else -> {
                 holder.binding.tvItem.background =
-                    ContextCompat.getDrawable(context, R.drawable.item_circular_color_gray_background)
+                    ContextCompat.getDrawable(context,
+                        R.drawable.item_circular_color_gray_background
+                    )
                 holder.binding.tvItem.setTextColor(Color.parseColor("#212121"))
             }
         }

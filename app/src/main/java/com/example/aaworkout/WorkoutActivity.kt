@@ -12,7 +12,10 @@ import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.aaworkout.adapters.WorkoutStatusAdapter
 import com.example.aaworkout.databinding.ActivityWorkoutBinding
+import com.example.aaworkout.models.ExerciseModel
+import com.example.aaworkout.utils.Constants
 import java.util.*
 
 class WorkoutActivity : AppCompatActivity(), TextToSpeech.OnInitListener {

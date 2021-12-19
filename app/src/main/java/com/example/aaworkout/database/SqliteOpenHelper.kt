@@ -1,4 +1,4 @@
-package com.example.aaworkout
+package com.example.aaworkout.database
 
 import android.content.ContentValues
 import android.content.Context

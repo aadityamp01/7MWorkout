@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.aaworkout.adapters.HistoryAdapter
+import com.example.aaworkout.database.SqliteOpenHelper
 import com.example.aaworkout.databinding.ActivityHistoryBinding
 
 class HistoryActivity : AppCompatActivity() {
